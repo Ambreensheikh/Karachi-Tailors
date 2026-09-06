@@ -1,0 +1,239 @@
+/* Tailwind */
+@import "tailwindcss";
+
+/* Root Colors (Brand Consistency) */
+:root {
+  --gold: #D4AF37;
+  --gold-light: #f3e08a;
+  --gold-dark: #b8860b;
+  --bg-dark: #0a0a0a;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+}
+
+/* Image Optimization (SEO + Performance) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Performance Optimization */
+* {
+  will-change: transform, opacity;
+}
+
+/* Reduce Motion (Accessibility + SEO boost) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================= */
+/* Scroll Reveal Animation */
+/* ============================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* Gold Shimmer Text */
+/* ============================= */
+
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold-dark) 0%,
+    var(--gold) 25%,
+    var(--gold-light) 50%,
+    var(--gold) 75%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 3s linear infinite;
+}
+
+/* ============================= */
+/* Button Gold Glow */
+/* ============================= */
+
+.btn-gold-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn-gold-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--gold-dark),
+    var(--gold),
+    var(--gold-light),
+    var(--gold)
+  );
+  background-size: 200% auto;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: goldShimmer 2s linear infinite;
+}
+
+.btn-gold-glow:hover::before {
+  opacity: 1;
+}
+
+.btn-gold-glow:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
+              0 0 40px rgba(212, 175, 55, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================= */
+/* Image Hover Zoom + Overlay */
+/* ============================= */
+
+.img-hover-zoom {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+.img-hover-zoom::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.7) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-hover-zoom:hover::after {
+  opacity: 1;
+}
+
+/* ============================= */
+/* WhatsApp Pulse Animation */
+/* ============================= */
+
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-pulse {
+  animation: whatsappPulse 2s infinite;
+}
+
+/* ============================= */
+/* Border Glow Animation */
+/* ============================= */
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(184, 134, 11, 0.3); }
+  50% { border-color: rgba(212, 160, 23, 0.8); }
+}
+
+.border-glow-animate {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* ============================= */
+/* Play Button Pulse */
+/* ============================= */
+
+@keyframes playPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(212, 175, 55, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.play-btn-pulse {
+  animation: playPulse 2s ease-in-out infinite;
+}
+
+/* ============================= */
+/* Fade In Up */
+/* ============================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ============================= */
+/* Stagger Animation */
+/* ============================= */
+
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children.active > *:nth-child(1) { animation: fadeInUp 0.6s 0.1s forwards; }
+.stagger-children.active > *:nth-child(2) { animation: fadeInUp 0.6s 0.2s forwards; }
+.stagger-children.active > *:nth-child(3) { animation: fadeInUp 0.6s 0.3s forwards; }
+.stagger-children.active > *:nth-child(4) { animation: fadeInUp 0.6s 0.4s forwards; }
+.stagger-children.active > *:nth-child(5) { animation: fadeInUp 0.6s 0.5s forwards; }
+.stagger-children.active > *:nth-child(6) { animation: fadeInUp 0.6s 0.6s forwards; }
