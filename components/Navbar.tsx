@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Scissors, Phone } from "lucide-react";
+import { Menu, X, Scissors, Phone, Lock } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +21,8 @@ export default function Navbar() {
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isMobile) {
-      // Mobile device: Phone dialer open karega
       window.location.href = "tel:+923332207677";
     } else {
-      // Desktop / Laptop: Smooth scroll to contact form (No Windows popup)
       const contactSection = document.getElementById("contact");
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
@@ -35,8 +33,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Fashion Gallery", href: "#portfolio" },
-    //{ name: "Our Expertise", href: "#video" },
     { name: "Contact", href: "#contact" },
+    { name: "Reviews", href: "#reviews" }
   ];
 
   return (
@@ -48,15 +46,16 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-        
         {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2 group"
           aria-label="Karachi Tailors Islamabad Home"
         >
-          <Scissors className="w-6 h-6 text-yellow-400 drop-shadow-[0_0_6px_rgba(255,215,0,0.7)] group-hover:rotate-12 transition-transform duration-300" aria-hidden="true" />
-          
+          <Scissors
+            className="w-6 h-6 text-yellow-400 drop-shadow-[0_0_6px_rgba(255,215,0,0.7)] group-hover:rotate-12 transition-transform duration-300"
+            aria-hidden="true"
+          />
           <span className="font-serif text-xl md:text-2xl font-bold tracking-wide text-white">
             Karachi{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]">
@@ -66,7 +65,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Desktop Navigation">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Desktop Navigation">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -87,6 +86,17 @@ export default function Navbar() {
             <Phone className="w-3 h-3" aria-hidden="true" />
             Book Now
           </button>
+
+          {/* Admin Atelier Portal Access */}
+          <Link
+            href="/admin/login"
+            aria-label="Staff Login"
+            title="Admin Login Portal"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-yellow-600/30 text-xs font-medium text-yellow-500 hover:text-yellow-300 hover:border-yellow-400 transition bg-yellow-500/5 hover:bg-yellow-500/10"
+          >
+            <Lock className="w-3.5 h-3.5 text-yellow-400" />
+            <span>Staff</span>
+          </Link>
         </nav>
 
         {/* Mobile Hamburger Button */}
@@ -121,11 +131,21 @@ export default function Navbar() {
           <a
             href="tel:+923332207677"
             onClick={() => setIsOpen(false)}
-            className="mt-4 w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-black py-3 rounded-lg font-bold uppercase text-sm flex items-center justify-center gap-2"
+            className="mt-2 w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-black py-3 rounded-lg font-bold uppercase text-sm flex items-center justify-center gap-2"
           >
             <Phone className="w-4 h-4" />
             Call for Appointment
           </a>
+
+          {/* Mobile Admin Portal Link */}
+          <Link
+            href="/admin/login"
+            onClick={() => setIsOpen(false)}
+            className="w-full text-center border border-yellow-600/30 text-yellow-500 py-2.5 rounded-lg text-xs font-semibold uppercase flex items-center justify-center gap-2 hover:bg-yellow-500/10 transition"
+          >
+            <Lock className="w-3.5 h-3.5" />
+            Staff Portal Login
+          </Link>
         </nav>
       </div>
     </header>

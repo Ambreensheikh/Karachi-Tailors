@@ -6,6 +6,7 @@ import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import ContactSection from "@/components/ContactSection";
 import { useScrollAnimation } from "@/lib/useScrollAnimation";
+import ReviewsSection from '@/components/RiviewsSection';
 
       
 export default function Home() {
@@ -21,6 +22,10 @@ export default function Home() {
      <HeroSection /> 
       
       {/* 2. Services Section (Icons + Gold) */}
+
+      {/* Reviews Section with Stars & Submission */}
+      <ReviewsSection />
+
       <ServicesSection />
       
       {/* 3. Fashion Portfolio (Gallery) */}
