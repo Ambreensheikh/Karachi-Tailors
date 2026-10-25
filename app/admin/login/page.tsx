@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Lock, Eye, EyeOff, Scissors } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Lock, Eye, EyeOff, Scissors } from "lucide-react";
 
 export default function AdminLogin() {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
@@ -17,13 +17,13 @@ export default function AdminLogin() {
   useEffect(() => {
     async function checkAuth() {
       try {
-        const res = await fetch('/api/admin/me', {
-          credentials: 'include',
+        const res = await fetch("/api/admin/me", {
+          credentials: "include",
         });
         const data = await res.json();
 
         if (data.authenticated) {
-          router.replace('/admin/dashboard');
+          router.replace("/admin/dashboard");
           return;
         }
       } catch (err) {
@@ -38,31 +38,31 @@ export default function AdminLogin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.message || 'Invalid password');
+        setError(data.message || "Invalid password");
         return;
       }
 
       if (data.success) {
-        router.push('/admin/dashboard');
+        router.push("/admin/dashboard");
         router.refresh();
       } else {
-        setError(data.message || 'Login failed');
+        setError(data.message || "Login failed");
       }
     } catch (err) {
-      setError('Server error. Try again.');
+      setError("Server error. Try again.");
     } finally {
       setLoading(false);
     }
@@ -90,7 +90,7 @@ export default function AdminLogin() {
           <div className="inline-flex items-center gap-2 mb-3">
             <Scissors className="w-8 h-8 text-yellow-400 drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" />
             <span className="font-serif text-2xl font-bold tracking-wide text-white">
-              Karachi{" "}
+              New Era{" "}
               <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 bg-clip-text text-transparent">
                 Tailors
               </span>
@@ -118,7 +118,7 @@ export default function AdminLogin() {
               <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
 
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
@@ -131,7 +131,11 @@ export default function AdminLogin() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-yellow-400 transition"
               >
-                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                {showPassword ? (
+                  <EyeOff className="w-5 h-5" />
+                ) : (
+                  <Eye className="w-5 h-5" />
+                )}
               </button>
             </div>
           </div>
@@ -147,7 +151,7 @@ export default function AdminLogin() {
             disabled={loading}
             className="w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black py-3.5 rounded-lg font-bold uppercase text-xs tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6)] disabled:opacity-50 cursor-pointer"
           >
-            {loading ? 'Authenticating...' : 'Login to Dashboard'}
+            {loading ? "Authenticating..." : "Login to Dashboard"}
           </button>
         </form>
 

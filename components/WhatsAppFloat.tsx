@@ -6,7 +6,7 @@ import ContactFooter from "@/components/ContactSection";
 
 // ✅ SEO Metadata
 export const metadata = {
-  title: "Karachi Tailors | Best Ladies Tailor in Islamabad",
+  title: " New Era Tailors | Best Ladies Tailor in Islamabad",
   description:
     "Expert in bridal dresses, fancy suits, and custom stitching in Islamabad. Premium tailoring services with perfect finishing.",
   keywords: [

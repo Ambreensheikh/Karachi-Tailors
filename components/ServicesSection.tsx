@@ -29,7 +29,8 @@ export default function ServicesSection() {
 
   const handleDiscussDesign = () => {
     const phoneNumber = "923332207677";
-    const text = "Hi Karachi Tailors! I would like to discuss my outfit design and stitching details with you.";
+    const text =
+      "Hi New Era Tailors! I would like to discuss my outfit design and stitching details with you.";
     const encodedText = encodeURIComponent(text);
 
     // Device check: Mobile vs Desktop
@@ -42,13 +43,16 @@ export default function ServicesSection() {
       // Desktop user: Direct WhatsApp Web open hoga (Pick an app dialog bypass)
       window.open(
         `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedText}`,
-        "_blank"
+        "_blank",
       );
     }
   };
 
   return (
-    <section id="services" className="relative bg-[#0a0a0a] py-20 px-6 scroll-mt-16">
+    <section
+      id="services"
+      className="relative bg-[#0a0a0a] py-20 px-6 scroll-mt-16"
+    >
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,215,0,0.08),transparent_60%)] pointer-events-none"></div>
 
@@ -62,7 +66,8 @@ export default function ServicesSection() {
         </h2>
 
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-sm md:text-lg">
-          Karachi Tailors offers premium ladies tailoring services in Islamabad, including bridal wear, custom stitching, and expert alterations.
+          New Era Tailors offers premium ladies tailoring services in Islamabad,
+          including bridal wear, custom stitching, and expert alterations.
         </p>
 
         {/* Grid */}
@@ -104,7 +109,7 @@ export default function ServicesSection() {
           <button
             type="button"
             onClick={handleDiscussDesign}
-            aria-label="Discuss your design with Karachi Tailors on WhatsApp"
+            aria-label="Discuss your design with New Era Tailors on WhatsApp"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 text-black px-8 py-3.5 rounded-full font-bold uppercase text-sm tracking-wide shadow-[0_0_20px_rgba(255,215,0,0.5)] hover:shadow-[0_0_30px_rgba(255,215,0,0.8)] transition cursor-pointer"
           >
             <MessageCircle className="w-4 h-4" aria-hidden="true" />

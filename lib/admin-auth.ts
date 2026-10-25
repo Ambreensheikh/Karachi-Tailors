@@ -19,7 +19,7 @@ export async function createSession() {
   cookieStore.set(SESSION_COOKIE, "authenticated", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax", // 'strict' ke bajaye 'lax' use karein redirect loops se bachne ke liye
+    sameSite: "lax", // 'strict' ke bajaye 'lax' use kia redirect loops se bachne ke liye
     maxAge: 60 * 60 * 24, // 24 hours
     path: "/",
   });

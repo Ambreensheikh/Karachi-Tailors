@@ -3,19 +3,20 @@
 import Script from "next/script";
 import { Phone, MapPin, Clock, Send } from "lucide-react";
 
-// ✅ SEO Local Business Schema (Friday Closed Fixed)
+// ✅ SEO Local Business Schema
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ClothingStore"],
-  name: "Karachi Tailors Islamabad",
+  name: "New Era Tailors",
   description:
-    "Expert bridal and formal wear stitching services in Islamabad. Specializing in lehengas, frocks, and alterations.",
+    "Expert bridal and formal wear stitching services in Bahria Town Phase 7, Rawalpindi & Islamabad. Specializing in lehengas, frocks, and alterations.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Malik Arcade, Shop no:15, Ghouri Town Phase 5, Opposite Cheezious",
-    addressLocality: "Islamabad",
-    addressRegion: "ICT",
-    postalCode: "44000",
+    streetAddress:
+      "Al Madina Arcade, Plaza 170, Basement Shop No. 2, Near Shaheen Chowk, Bahria Town Phase 7",
+    addressLocality: "Rawalpindi/Islamabad",
+    addressRegion: "Punjab",
+    postalCode: "46000",
     addressCountry: "PK",
   },
   telephone: "+92-333-2207677",
@@ -23,13 +24,7 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Saturday",
-      ],
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday","Sunday"],
       opens: "10:00",
       closes: "23:00",
     },
@@ -86,8 +81,9 @@ export default function ContactSection() {
                   Our Location
                 </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Malik Arcade, Shop no:15, Ghouri Town Phase 5, Opposite Cheezious <br />
-                  Islamabad, Pakistan
+                  Al Madina Arcade, Plaza 170, Basement Shop No. 2, Near Shaheen
+                  Chowk, Bahria Town Phase 7 <br />
+                  Rawalpindi / Islamabad, Pakistan
                 </p>
               </div>
             </div>
@@ -104,7 +100,7 @@ export default function ContactSection() {
                 <a
                   href="tel:+923332207677"
                   className="text-gray-400 hover:text-yellow-400 transition-colors inline-block"
-                  aria-label="Call Karachi Tailors at +92 333 220 7677"
+                  aria-label="Call New Era Tailors at +92 333 220 7677"
                 >
                   +92 333 220 7677
                 </a>
@@ -140,22 +136,30 @@ export default function ContactSection() {
                 e.preventDefault();
 
                 const form = e.target as HTMLFormElement;
-                const name = (form.elements.namedItem("name") as HTMLInputElement).value;
-                const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
-                const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+                const name = (
+                  form.elements.namedItem("name") as HTMLInputElement
+                ).value;
+                const phone = (
+                  form.elements.namedItem("phone") as HTMLInputElement
+                ).value;
+                const message = (
+                  form.elements.namedItem("message") as HTMLTextAreaElement
+                ).value;
 
                 const phoneNumber = "923332207677";
-                const text = `Hello Karachi Tailors,\nName: ${name}\nPhone: ${phone}\nRequirements: ${message}`;
+                const text = `Hello New Era Tailors,\nName: ${name}\nPhone: ${phone}\nRequirements: ${message}`;
                 const encodedText = encodeURIComponent(text);
 
-                const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                const isMobile = /Android|iPhone|iPad|iPod/i.test(
+                  navigator.userAgent,
+                );
 
                 if (isMobile) {
                   window.location.href = `https://wa.me/${phoneNumber}?text=${encodedText}`;
                 } else {
                   window.open(
                     `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedText}`,
-                    "_blank"
+                    "_blank",
                   );
                 }
               }}
@@ -189,7 +193,7 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                aria-label="Send message to Karachi Tailors via WhatsApp"
+                aria-label="Send message to New Era Tailors via WhatsApp"
                 className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all"
               >
                 <Send className="w-5 h-5" aria-hidden="true" />

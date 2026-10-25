@@ -10,7 +10,7 @@ export default async function PortfolioPage() {
 
   try {
     const result = await cloudinary.search
-      .expression('folder:karachi-tailors/portfolio/*')
+      .expression('folder:new era-tailors/portfolio/*')
       .sort_by('created_at', 'desc')
       .max_results(50)
       .execute();

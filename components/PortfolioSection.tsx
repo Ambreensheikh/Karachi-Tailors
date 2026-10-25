@@ -7,7 +7,7 @@ import { Eye, Sparkles } from "lucide-react";
 const portfolioItems = [
   {
     src: "/bridalMaroon.jpg",
-    alt: "Red Bridal Lehenga with Heavy Gold Zardozi Embroidery stitched by Karachi Tailors Islamabad",
+    alt: "Red Bridal Lehenga with Heavy Gold Zardozi Embroidery stitched by New Era  Tailors Islamabad",
     title: "Royal Red Lehenga",
     category: "Bridal Wear",
   },

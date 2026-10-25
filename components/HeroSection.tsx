@@ -30,7 +30,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/hero-bg.jpg"
-          alt="Karachi Tailors Islamabad - Luxury Bridal and Custom Tailoring Studio"
+          alt="New Era Tailors Islamabad - Luxury Bridal and Custom Tailoring Studio"
           fill
           priority
           sizes="100vw"
@@ -49,14 +49,14 @@ export default function HeroSection() {
 
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
           <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 bg-clip-text text-transparent">
-            Bridal &amp; Custom Tailoring
+            New Era Tailors
           </span>{" "}
-          in Islamabad
+          in  Rawalpindi &amp; Islamabad
         </h1>
 
         <p className="mt-6 text-gray-300 text-sm md:text-lg max-w-2xl mx-auto">
           Experience luxury stitching with perfect fitting, premium fabrics, and expert tailoring. 
-          Karachi Tailors delivers elegant bridal wear, custom suits, and flawless alterations.
+          New Era Tailors delivers elegant bridal wear, custom suits, and flawless alterations.
         </p>
 
         {/* CTA Buttons */}

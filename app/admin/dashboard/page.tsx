@@ -20,11 +20,11 @@ export default async function AdminDashboard() {
   try {
     const [images, videos] = await Promise.all([
       cloudinary.search
-        .expression("folder:karachi-tailors/portfolio/*")
+        .expression("folder:portfolio/*")
         .max_results(100)
         .execute(),
       cloudinary.search
-        .expression("folder:karachi-tailors/videos/*")
+        .expression("folder:videos/*")
         .max_results(100)
         .execute(),
     ]);
@@ -87,10 +87,13 @@ export default async function AdminDashboard() {
       {/* Header */}
       <div>
         <h1 className="font-serif text-3xl md:text-4xl font-bold text-white tracking-wide">
-          Studio <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">Overview</span>
+          Studio{" "}
+          <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+            Overview
+          </span>
         </h1>
         <p className="text-gray-400 text-sm mt-1">
-          Welcome to Karachi Tailors Admin Management Portal
+          Welcome to New Era Tailors Admin Management Portal
         </p>
       </div>
 
@@ -105,7 +108,9 @@ export default async function AdminDashboard() {
               className={`bg-[#111] border ${stat.border} rounded-2xl p-6 hover:border-yellow-500/50 hover:shadow-[0_0_20px_rgba(255,215,0,0.1)] transition-all group`}
             >
               <div className="flex items-center justify-between mb-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${stat.bg}`}>
+                <div
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center ${stat.bg}`}
+                >
                   <Icon className={`w-6 h-6 ${stat.color}`} />
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-gray-600 group-hover:text-yellow-400 transition" />
@@ -134,8 +139,12 @@ export default async function AdminDashboard() {
             className="flex items-center justify-between p-4 bg-black/50 border border-yellow-600/10 rounded-xl hover:border-yellow-500/40 hover:bg-black transition group"
           >
             <div>
-              <p className="font-semibold text-white text-sm group-hover:text-yellow-400 transition">Upload New Dress</p>
-              <p className="text-xs text-gray-500 mt-0.5">Add bridal or formal attire</p>
+              <p className="font-semibold text-white text-sm group-hover:text-yellow-400 transition">
+                Upload New Dress
+              </p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Add bridal or formal attire
+              </p>
             </div>
             <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-yellow-400" />
           </Link>
@@ -145,8 +154,12 @@ export default async function AdminDashboard() {
             className="flex items-center justify-between p-4 bg-black/50 border border-yellow-600/10 rounded-xl hover:border-yellow-500/40 hover:bg-black transition group"
           >
             <div>
-              <p className="font-semibold text-white text-sm group-hover:text-yellow-400 transition">Add Video</p>
-              <p className="text-xs text-gray-500 mt-0.5">Showcase studio craftsmanship</p>
+              <p className="font-semibold text-white text-sm group-hover:text-yellow-400 transition">
+                Add Video
+              </p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Showcase studio craftsmanship
+              </p>
             </div>
             <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-yellow-400" />
           </Link>
@@ -156,8 +169,12 @@ export default async function AdminDashboard() {
             className="flex items-center justify-between p-4 bg-black/50 border border-yellow-600/10 rounded-xl hover:border-yellow-500/40 hover:bg-black transition group"
           >
             <div>
-              <p className="font-semibold text-white text-sm group-hover:text-yellow-400 transition">Customer Orders</p>
-              <p className="text-xs text-gray-500 mt-0.5">View customer design references</p>
+              <p className="font-semibold text-white text-sm group-hover:text-yellow-400 transition">
+                Customer Orders
+              </p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                View customer design references
+              </p>
             </div>
             <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-yellow-400" />
           </Link>

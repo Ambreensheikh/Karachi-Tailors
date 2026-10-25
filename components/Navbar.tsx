@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,18 +13,22 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Smart Detection Handler
   const handleBookingAction = () => {
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(
+      navigator.userAgent
+    );
 
     if (isMobile) {
       window.location.href = "tel:+923332207677";
     } else {
       const contactSection = document.getElementById("contact");
+
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
@@ -34,7 +39,7 @@ export default function Navbar() {
     { name: "Services", href: "#services" },
     { name: "Fashion Gallery", href: "#portfolio" },
     { name: "Contact", href: "#contact" },
-    { name: "Reviews", href: "#reviews" }
+    { name: "Reviews", href: "#reviews" },
   ];
 
   return (
@@ -50,14 +55,15 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-2 group"
-          aria-label="Karachi Tailors Islamabad Home"
+          aria-label="New Era Tailors Islamabad Home"
         >
           <Scissors
             className="w-6 h-6 text-yellow-400 drop-shadow-[0_0_6px_rgba(255,215,0,0.7)] group-hover:rotate-12 transition-transform duration-300"
             aria-hidden="true"
           />
+
           <span className="font-serif text-xl md:text-2xl font-bold tracking-wide text-white">
-            Karachi{" "}
+            New Era{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]">
               Tailors
             </span>
@@ -65,7 +71,10 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-6" aria-label="Desktop Navigation">
+        <nav
+          className="hidden md:flex items-center gap-6"
+          aria-label="Desktop Navigation"
+        >
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -106,7 +115,11 @@ export default function Navbar() {
           aria-label={isOpen ? "Close Menu" : "Open Menu"}
           className="md:hidden text-yellow-400 p-2 hover:bg-yellow-600/10 rounded-lg transition cursor-pointer"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
       </div>
 
@@ -116,7 +129,10 @@ export default function Navbar() {
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="flex flex-col p-6 space-y-4" aria-label="Mobile Navigation">
+        <nav
+          className="flex flex-col p-6 space-y-4"
+          aria-label="Mobile Navigation"
+        >
           {navLinks.map((link) => (
             <a
               key={link.name}

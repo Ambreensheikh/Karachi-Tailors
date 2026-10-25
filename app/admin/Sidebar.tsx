@@ -21,7 +21,7 @@ export default function Sidebar() {
       <Link href="/admin/dashboard" className="flex items-center gap-2 mb-8">
         <Scissors className="w-6 h-6 text-gold-400" />
         <span className="font-serif text-xl font-bold text-white">
-          Karachi <span className="text-gold-400">Tailors</span>
+           New Era  <span className="text-gold-400">Tailors</span>
         </span>
       </Link>
 
